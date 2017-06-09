@@ -173,8 +173,7 @@ header {
           order: 2; }
         .multi-func .wrapper div.about {
           width: auto;
-          margin: 0;
-          margin-left: 0; } }
+          margin: 0 0 40px 0; } }
     .multi-func .wrapper .search {
       padding: 18px 22px;
       background-color: #BA4550;
