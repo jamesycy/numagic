@@ -11,8 +11,8 @@
             <div class="main-menu">
                 <ul>
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="#shop-grid">Products</a></li>
+                    <li><a href="#aboutus">About Us</a></li>
                 </ul>
             </div>
             <div class="splash">
@@ -20,17 +20,17 @@
                 <h1>New magic and You</h1>
             </div>
             <div class="bottom-header">
-                <button type='button'>Shop Now ></button>
+                <button type='button' onclick="gotoshop('shop-grid')">Shop Now ></button>
             </div>
     </header>
 
-    <div class="grid-section">
+    <div class="grid-section" id="shop-grid">
         <div class="grid-menu">
             <ul>
-                <li><a href="#" class="active">close up</a></li>
-                <li><a href="#">playing cards</a></li>
-                <li><a href="#">kids magic</a></li>
-                <li><a href="#">stage magic</a></li>
+                <li><a href="#" class="active" onclick="menuActive(event)">close up</a></li>
+                <li><a href="#" onclick="menuActive(event)">playing cards</a></li>
+                <li><a href="#" onclick="menuActive(event)">kids magic</a></li>
+                <li><a href="#" onclick="menuActive(event)">stage magic</a></li>
             </ul>
         </div>
         <div class="title-block">
@@ -99,7 +99,7 @@
         <a href="/" class="more">see more ></a>
     </div>
 
-    <div class="multi-func">
+    <div class="multi-func" id="aboutus">
         <div class="wrapper">
             <div class="search">
                 <div class="search-box">
@@ -135,5 +135,43 @@
         </div>
     </div>
 
+    <div class="info">
+        <div class="wrapper">
+            <div class="order sections">
+                <h1>order</h1>
+                <h3>Step 1</h3>
+                <p>Browse our online store and see what you like</p>
+            </div>
+            <div class="payment sections">
+                <h1>payment</h1>
+                <h3>Step 2</h3>
+                <p>
+                    Go to your shopping cart and press CHECKOUT, a various options for payment will be listed
+                </p>
+            </div>
+            <div class="shipment sections">
+                <h1>shipment</h1>
+                <h3>Step 3</h3>
+                <p>
+                    Select a shipment method you preferred and your order will be departed from us within 3 days
+                </p>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    function menuActive(e) {
+        var current_active = document.querySelector('.grid-menu ul li a.active');
+        if (!e.target.className) {
+            e.target.className = 'active';
+            current_active.className = '';
+        }
+    }
+
+    function gotoshop(hash) {
+        location.hash = '#';
+        location.hash = '#' + hash;
+    }
+</script>
 </body>
 </html>

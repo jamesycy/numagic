@@ -22,7 +22,7 @@ header {
     z-index: -1;
     top: 0;
     left: 0;
-    position: absolute; }
+    position: fixed; }
   header .main-menu {
     position: absolute;
     top: 0;
@@ -63,7 +63,8 @@ header {
         cursor: pointer; }
 
 .grid-section {
-  margin-bottom: 50px; }
+  padding-bottom: 50px;
+  background-color: #fff; }
   .grid-section .grid-menu {
     border-bottom: 1px solid #000; }
     .grid-section .grid-menu ul {
@@ -144,9 +145,7 @@ header {
     padding: 5px 10px; }
 
 .multi-func {
-  background-color: #495053;
-  padding: 2rem 0;
-  margin-bottom: 100px; }
+  padding: 2rem 0; }
   .multi-func .wrapper {
     color: #fff;
     display: -webkit-box;
@@ -229,3 +228,45 @@ header {
       .multi-func .wrapper .about p {
         line-height: 20px;
         letter-spacing: 1.25px; }
+
+.info {
+  background-color: #fff;
+  padding: 100px 0; }
+  .info .wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    @media only screen and (max-width: 600px) {
+      .info .wrapper {
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+        .info .wrapper div.sections {
+          width: auto; }
+          .info .wrapper div.sections.payment {
+            margin: 40px 0;
+            border: none; } }
+    .info .wrapper div {
+      width: 30%; }
+      .info .wrapper div.payment {
+        border-left: 1px solid black;
+        border-right: 1px solid black; }
+      .info .wrapper div h1 {
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 1.5px; }
+      .info .wrapper div h3 {
+        letter-spacing: 1.3px;
+        font-style: italic;
+        font-family: cursive;
+        margin: 8px 0; }
+      .info .wrapper div p {
+        width: 80%;
+        margin: auto;
+        line-height: 20px;
+        letter-spacing: 1.2px; }
