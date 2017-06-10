@@ -264,7 +264,8 @@ header {
         letter-spacing: 1.3px;
         font-style: italic;
         font-family: cursive;
-        margin: 8px 0; }
+        margin: 8px 0;
+        color: #B53939; }
       .info .wrapper div p {
         width: 80%;
         margin: auto;
