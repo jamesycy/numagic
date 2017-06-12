@@ -6,6 +6,9 @@
   * ul {
     list-style: none; }
 
+a:hover {
+  cursor: pointer; }
+
 header {
   height: 75vh;
   width: 100%;
@@ -114,6 +117,9 @@ header {
     .grid-section .grid-container .item {
       margin: 0 20px;
       margin-bottom: 20px; }
+      .grid-section .grid-container .item a {
+        color: #000;
+        text-decoration: none; }
       .grid-section .grid-container .item button {
         margin: 5px 0;
         text-transform: uppercase;

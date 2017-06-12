@@ -1,0 +1,90 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='css/style.css')
+    meta(name='viewport', content='width=device-width')
+    title Nu Magic - New magic and you
+  body
+    header
+      .background
+      .main-menu
+        ul
+          li
+            a(href='/faq') FAQ
+          li
+            a(href='/products') Products
+          li
+            a(href='/about') About Us
+      .splash
+        img.numagic(src='./logo.png')
+        h1 New magic and You
+      .bottom-header
+        form(action='./products')
+          button#shop-now(data-target='product-grid') Shop Now >
+    #product-grid.grid-section
+      .grid-menu
+        ul
+          li
+            a.active(data-target='closeup') close up
+          li
+            a(data-target='playingcards') playing cards
+          li
+            a(data-target='kidsmagic') kids magic
+          li
+            a(data-target='stagemagic') stage magic
+      .title-block
+        h1 the latest
+        p and greatest products
+        h1 from nu-magic
+      .grid-container
+      a.more(href='/products') see more >
+    #about-us.multi-func
+      .wrapper
+        .search
+          .search-box
+            h1 Search By Name
+            div
+              form(action='/products')
+                input(type='text', name='', placeholder='Search By Name')
+                button Search
+          .category-box
+            h1 Browse By Category
+            ul
+              li
+                a(href='#') Card Magic
+              li
+                a(href='#') Playing Cards
+              li
+                a(href='#') Kids Magic
+              li
+                a(href='#') Stage Magic
+              li
+                a(href='#') Coins
+        .about
+          h1 welcome
+          h3 More About NU Magic - Where We Started
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            | tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            | quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            | consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            | cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            | proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    .info
+      .wrapper
+        .order.sections
+          h1 order
+          h3 Step 1
+          p Browse our online store and see what you like
+        .payment.sections
+          h1 payment
+          h3 Step 2
+          p
+            | Go to your shopping cart and press CHECKOUT, a various options for payment will be listed
+        .shipment.sections
+          h1 shipment
+          h3 Step 3
+          p
+            | Select a shipment method you preferred and your order will be departed from us within 3 days
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+    script(src='./js/fetch.js')
