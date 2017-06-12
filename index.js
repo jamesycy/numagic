@@ -63,7 +63,6 @@ app.get('/api/featured', function(req, res) {
 });
 
 app.post('/api/products', function(req, res) {
-    console.log(req.body.featured);
     Product.create({
         name: req.body.name,
         price: req.body.price,
