@@ -17,7 +17,9 @@ app.get('/', function(req ,res) {
 });
 
 app.get('/products', function(req, res) {
-    res.send('Products')
+    Product.findAll().then(function(products) {
+        res.render('layout/index', { products: products });
+    });
 });
 
 app.get('/faq', function(req, res) {
