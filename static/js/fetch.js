@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var target = $(".grid-menu ul li a.active").data('target');
     var data;
-        
+
     fetch(target);
 
     $('.grid-menu ul li a').on('click', function(e) {
@@ -21,10 +21,10 @@ $(document).ready(function() {
                 var grid = $(".grid-container");
                 grid.empty();
                 product.forEach(function(product) {
-                        grid.append(`
+                    grid.append(`
                         <div class="item">
                             <a href="#">
-                                <div class="image"></div>
+                                <div class="image"><img src=${product.product.thumbnail} /></div>
                                 <p>${product.product.name}</p>
                                 <hr/>
                                 <p>$${product.product.price}</p>

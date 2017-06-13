@@ -1,43 +1,11 @@
-doctype html
-html
-    head
-        link(rel='stylesheet', href='css/layout.css')
-        link(href='https://fonts.googleapis.com/css?family=Montserrat', rel='stylesheet')
-        meta(name='viewport', content='width=device-width')
-        title Nu Magic - New magic and you
-    body
-        .container
-            header
-                .logo
-                    a(href='/')
-                        img(src='./logo.png')
-                .main-menu
-                    ul
-                        li.toggle
-                            a(href='#') =
-                        li
-                            a(href='/about') faq
-                        li
-                            a.active(href='#') products
-                        li
-                            a(href='/about') about
-                        li
-                            a.cart(href='#') cart : 0
-            .wrapper
-                .title-block
-                    h1 our collection
-                form.search-form
-                    button
-                        i.fa.fa-search
-                    input(type='text', name='search', placeholder='SEARCH')
-                .grid-container
-                    ul.product-grid
-                        each product in products
-                            li.item
-                                .image
-                                    img()
-                                label.name= product.name
-                                br
-                                label.price= "$" + product.price
-        script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
-        script(src='https://use.fontawesome.com/47bd1fe096.js')
+extend layout.jade
+
+block content
+    ul.product-grid
+        each product in products
+            li.item
+                .image
+                    img(src=product.thumbnail)
+                label.name= product.name
+                br
+                label.price= "$" + product.price

@@ -25,7 +25,7 @@ html
                         td
                             - each category in product.product_categories
                                 p= category.category.name
-        form(action="/api/products" method="post")
+        form(action="/api/products" method="post" enctype="multipart/form-data")
             input(type="text" name="name" placeholder="Product Name")
             input(type="number" name="price" placeholder="Product Price")
             input(type="number" name="stock" placeholder="Stock")
@@ -37,6 +37,7 @@ html
             select(name="category" multiple)
                 each category in categories
                     option(value=category.id)= category.name
+            input(type="file" name="thumbnail" placeholder="Choose The Thumbnail" required)
             input(type="submit")
         br
         form(action="/api/categories" method="post")

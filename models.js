@@ -8,11 +8,12 @@ var Product = connection.define('product', {
     weight: Sequelize.FLOAT,
     width: Sequelize.FLOAT,
     height: Sequelize.FLOAT,
-    featured: { type: Sequelize.BOOLEAN, defaultValue: false }
+    featured: { type: Sequelize.BOOLEAN, defaultValue: false },
+    thumbnail: Sequelize.STRING
 });
 
 var Category = connection.define('category', {
-    name: Sequelize.STRING
+    name: { type: Sequelize.STRING, unique: true }
 });
 
 var ProductCategory = connection.define('product_category', {});

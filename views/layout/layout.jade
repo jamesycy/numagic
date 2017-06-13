@@ -1,0 +1,45 @@
+doctype html
+html
+    head
+        link(rel='stylesheet', href='css/layout.css')
+        link(href='https://fonts.googleapis.com/css?family=Montserrat', rel='stylesheet')
+        meta(name='viewport', content='width=device-width')
+        title Nu Magic - New magic and you
+    body
+        .container
+            header
+                .logo
+                    a(href='/')
+                        img(src='https://dl.dropboxusercontent.com/s/zgy6buzzojkoxnl/logo.png?dl=0' alt="./logo.png")
+                .main-menu
+                    ul
+                        li.toggle
+                            a(href='#') =
+                        li
+                            if page == 'faq'
+                                a.active(href='/faq') faq
+                            else 
+                                a(href='/faq') faq
+                        li
+                            if page == 'products'
+                                a.active(href='/products') products
+                            else
+                                a(href='/products') products
+                        li
+                            if page == 'about'
+                                a.active(href='/about') about
+                            else
+                                a(href='/about') about
+                        li
+                            a.cart(href='#') cart : 0
+            .wrapper
+                .title-block
+                    h1= title
+                form.search-form
+                    button
+                        i.fa.fa-search
+                    input(type='text', name='search', placeholder='SEARCH')
+                .grid-container
+                    block content
+        script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+        script(src='https://use.fontawesome.com/47bd1fe096.js')

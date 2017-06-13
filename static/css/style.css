@@ -20,12 +20,13 @@ header {
 }
 
 header .background {
-  background-image: url("../header.jpeg");
+  background-image: url("https://dl.dropboxusercontent.com/s/toan1q116v7543s/header.jpeg?dl=0");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
   width: 100%;
   height: 100%;
+  -webkit-filter: brightness(120%) contrast(40%);
   filter: brightness(120%) contrast(40%);
   z-index: -1;
   top: 0;
@@ -149,8 +150,16 @@ header .bottom-header button:hover {
 .grid-section .grid-container {
   width: 800px;
   margin: 0 auto 20px auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -219,7 +228,13 @@ header .bottom-header button:hover {
 
 .multi-func .wrapper {
   color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -231,9 +246,14 @@ header .bottom-header button:hover {
 
 @media only screen and (max-width: 1000px) {
   .multi-func .wrapper {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
   .multi-func .wrapper .search {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
     order: 2;
   }
   .multi-func .wrapper div.about {
@@ -245,6 +265,7 @@ header .bottom-header button:hover {
 .multi-func .wrapper .search {
   padding: 18px 22px;
   background-color: #BA4550;
+  -webkit-box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.16);
   box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.16);
 }
 
@@ -253,7 +274,13 @@ header .bottom-header button:hover {
 }
 
 .multi-func .wrapper .search .search-box div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -322,12 +349,20 @@ header .bottom-header button:hover {
 }
 
 .info .wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
 @media only screen and (max-width: 600px) {
   .info .wrapper {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
   .info .wrapper div.sections {

@@ -1,0 +1,170 @@
+$primary: #B53939;
+$secondary: #F77D7D;
+$text: #BA4550;
+$darkgrey: #585858;
+$lightgrey: #f8f8f8;
+
+* {
+    //font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    ul {
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+}
+
+body {
+    background: $lightgrey;
+    font-size: 100%;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    @media only screen and (max-width: 800px) {
+        width: 95%;
+    }
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+    .logo {
+        background: #fff;
+        border-radius: 50%;
+        padding: 8px;
+        width: 100px;
+        a img {
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+        }
+    }
+    .main-menu {
+        margin-left: auto;
+        ul li {
+            display: inline-block;
+            padding: 5px 0;
+            margin: 0 10px;
+            &.toggle {
+                display: none;
+            }
+            @media only screen and (max-width: 500px) {
+                display: none;
+                &.toggle {
+                    display: block;
+                }
+            }
+            a {
+                text-transform: uppercase;
+                &.active {
+                    color: $primary;
+                }
+                &.cart {
+                    background: $text;
+                    padding: 4px 8px;
+                    color: #fff;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}
+
+.wrapper {
+    .title-block h1 {
+        text-align: left;
+        text-transform: capitalize;
+        color: $darkgrey;
+    }
+    .search-form {
+        text-align: left;
+        padding-left: 15px;
+        margin-top: 10px;
+        margin-bottom: 50px;
+        button {
+            background: none;
+            border: none;
+            font-size: 16px;
+        }
+        input {
+            background: none;
+            border:none;
+            text-align: left;
+            padding: 5px;
+            font-size: 14px;
+            outline: none;
+        }
+    }
+
+    .grid-container {
+        width: 100%;
+        .product-grid {
+            background: #fff;
+            padding: 2rem;
+            max-height: 100%;
+            box-shadow: 0 0 35px rgba(0,0,0,0.1);
+            .item {
+                &:hover {
+                    cursor: pointer;
+                    label {
+                        color: $text;
+                    }
+                }
+                @media screen and (min-width: 768px) {
+                    width: 33.3%;
+                }
+                @media screen and (min-width: 1000px) {
+                    width: 25%;
+                }
+                @media screen and (min-width: 1200px) {
+                    width: 16.6666%;
+                }
+                width: 50%;
+                display: inline-block;
+                margin-bottom: 20px;
+                padding: 0.7%;
+                .image {
+                    box-shadow: 0 0 35px rgba(0,0,0,0.1);
+                    margin: 0 auto;
+                    background: rgba(105, 105, 105, 1);
+                    margin-bottom: 10px;
+                    overflow: hidden;
+                    img {
+                        width: 100%;
+                        height: auto;
+                        max-height: 100%;
+                    }
+                }
+                label {
+                    font-size: .8rem;
+                    color: #383838;
+                    transition: all 200ms ease-in-out;
+                    &.name {
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        white-space: nowrap;
+                        letter-spacing: 1px;
+                    }
+                }
+            }
+        }
+        .about {
+            background: #fff;
+            padding: 2rem;
+            max-height: 100%;
+            box-shadow: 0 0 35px rgba(0,0,0,0.1);background: #fff;
+            p {
+                width: 70%;
+                margin: 20px auto;
+            }
+        }
+    }
+}
