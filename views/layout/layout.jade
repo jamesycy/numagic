@@ -1,7 +1,7 @@
 doctype html
 html
     head
-        link(rel='stylesheet', href='css/layout.css')
+        link(rel='stylesheet', href='/css/layout.css')
         link(href='https://fonts.googleapis.com/css?family=Montserrat', rel='stylesheet')
         meta(name='viewport', content='width=device-width')
         title Nu Magic - New magic and you
@@ -10,11 +10,12 @@ html
             header
                 .logo
                     a(href='/')
-                        img(src='https://dl.dropboxusercontent.com/s/zgy6buzzojkoxnl/logo.png?dl=0' alt="./logo.png")
+                        img(alt='https://dl.dropboxusercontent.com/s/zgy6buzzojkoxnl/logo.png?dl=0' src="/logo.png")
                 .main-menu
                     ul
                         li.toggle
-                            a(href='#') =
+                            a(href='#')
+                                i.fa.fa-bars.fa-2x
                         li
                             if page == 'faq'
                                 a.active(href='/faq') faq

@@ -4,6 +4,13 @@ $text: #BA4550;
 $darkgrey: #585858;
 $lightgrey: #f8f8f8;
 
+@mixin grid-background() {
+    background: #fff;
+    padding: 2rem;
+    max-height: 100%;
+    box-shadow: 0 0 35px rgba(0,0,0,0.1);background: #fff;
+}
+
 * {
     //font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-family: 'Montserrat', sans-serif;
@@ -107,10 +114,8 @@ header {
     .grid-container {
         width: 100%;
         .product-grid {
-            background: #fff;
-            padding: 2rem;
-            max-height: 100%;
-            box-shadow: 0 0 35px rgba(0,0,0,0.1);
+            @include grid-background();
+            text-align: left;
             .item {
                 &:hover {
                     cursor: pointer;
@@ -156,15 +161,20 @@ header {
                 }
             }
         }
+
         .about {
-            background: #fff;
-            padding: 2rem;
-            max-height: 100%;
-            box-shadow: 0 0 35px rgba(0,0,0,0.1);background: #fff;
+            @include grid-background();
             p {
                 width: 70%;
                 margin: 20px auto;
+                line-height: 1.7rem;
+                text-align: left;
+                letter-spacing: 1.2px;
             }
+        }
+
+        .single {
+            @include grid-background();
         }
     }
 }

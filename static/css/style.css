@@ -20,7 +20,7 @@ header {
 }
 
 header .background {
-  background-image: url("https://dl.dropboxusercontent.com/s/toan1q116v7543s/header.jpeg?dl=0");
+  background-image: url("/header.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -300,6 +300,7 @@ header .bottom-header button:hover {
 }
 
 .multi-func .wrapper .search .category-box a {
+  text-transform: capitalize;
   text-decoration: none;
   color: #fff;
 }

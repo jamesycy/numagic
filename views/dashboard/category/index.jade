@@ -1,0 +1,21 @@
+extend ../layout.jade
+
+block content
+    .categories.card
+        table
+            thead
+                tr
+                    th Name
+                    th Delete
+            tbody
+                if categories
+                    each category in categories
+                        tr
+                            td= category.name
+                            td
+                                if category.name != 'close up'
+                                    if category.name != 'playing cards'
+                                        if category.name != 'kids magic'
+                                            if category.name != 'stage magic'
+                                                form(method="post" action="/api/category/delete")
+                                                    button(type='submit') Delete

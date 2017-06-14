@@ -1,0 +1,159 @@
+$primary: #B53939;
+$secondary: #F77D7D;
+$text: #BA4550;
+$darkgrey: #585858;
+$lightgrey: #f8f8f8;
+
+* {
+    //font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+body {
+    background: $lightgrey;
+    font-size: 100%;
+}
+
+ul li a {
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.top-menu {
+    box-shadow: 0 0 35px rgba(0,0,0,0.2);
+    background: $primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    .logo {
+        margin-right: auto;
+        width: 80px;
+        background: #fff;
+        img {
+            width: 100%;
+            max-height: 100%;
+            height: auto;
+        }
+    }
+    ul {
+        li {
+            display: inline-block;
+            margin: 0 10px;
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.side-bar {
+    position: absolute;
+    background: $text;
+    width: 160px;
+    height: 100%;
+    padding: 2rem 0;
+    box-shadow: 0 0 35px rgba(0,0,0,0.2);
+    ul.sub-menu {
+        position: absolute;
+        left: 100%;
+        width: 200px;
+        padding: 0;
+        background-color: $text;
+        display: none;
+        top: 0px;
+        li {
+            margin: 0;
+        }
+    }
+    .parent-menu {
+        position: relative;
+        &:hover {
+            .sub-menu {
+                display: block;
+            }
+        }
+    }
+    ul {
+        list-style: none;
+        li {
+            margin: 10px 0;
+            padding: .5rem;
+            &.active, &:hover {
+                background: #fff;
+                a {
+                    color: #000;
+                }
+            }
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.container {
+    margin-left: 160px;
+    padding: 2rem;
+    h1 {
+        text-transform: capitalize;
+    }
+    .card {
+        background: #fff;
+        width: 1200px;
+        padding: 1rem;
+        margin: .5rem auto;
+        box-shadow: 0 0 35px rgba(0,0,0,0.2);
+    }
+}
+
+.products, .categories {
+    table {
+        margin: 2rem auto;
+        tr {
+            table-layout: fixed;
+            td, th {
+                width: 250px;
+                text-transform: capitalize;
+            }
+            button {
+                padding: .3rem .5rem;
+                outline: none;
+                background-color: $primary;
+                border: none;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.product-add, .category-add {
+    input {
+        padding: .5rem .4rem;
+        text-align: left;
+        margin: 1rem;
+    }
+    select {
+        margin: 1rem 0;
+    }
+    select[multiple] {
+        padding: .5rem .4rem;
+        height: 100px;
+        option {
+            font-size: 14px;
+            text-transform: capitalize;
+            margin: .2rem 0;
+        }
+    }
+    button {
+        background-color: $primary;
+        padding: .5rem 1rem;
+        font-size: 15px;
+        color: #fff;
+        border: none;
+        outline: none;
+    }
+}

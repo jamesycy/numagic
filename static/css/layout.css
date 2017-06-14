@@ -131,6 +131,8 @@ header .main-menu ul li a.cart {
   max-height: 100%;
   -webkit-box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  text-align: left;
 }
 
 .wrapper .grid-container .product-grid .item {
@@ -208,4 +210,16 @@ header .main-menu ul li a.cart {
 .wrapper .grid-container .about p {
   width: 70%;
   margin: 20px auto;
+  line-height: 1.7rem;
+  text-align: left;
+  letter-spacing: 1.2px;
+}
+
+.wrapper .grid-container .single {
+  background: #fff;
+  padding: 2rem;
+  max-height: 100%;
+  -webkit-box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+  background: #fff;
 }

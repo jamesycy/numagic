@@ -2,10 +2,13 @@ extend layout.jade
 
 block content
     ul.product-grid
-        each product in products
-            li.item
-                .image
-                    img(src=product.thumbnail)
-                label.name= product.name
-                br
-                label.price= "$" + product.price
+        if products
+            each product in products
+                li.item
+                    a(href='/products/' + product.id)
+                        .image
+                            if product.thumbnail
+                                img(src=product.thumbnail)
+                        label.name= product.name
+                        br
+                        label.price= "$" + product.price

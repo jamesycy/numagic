@@ -16,23 +16,25 @@ $(document).ready(function() {
         $.ajax({
             url: './api/featured',
             data: {category: categoryname},
-            success: function(category) {
-                var product = category.product_categories;
-                var grid = $(".grid-container");
-                grid.empty();
-                product.forEach(function(product) {
-                    grid.append(`
-                        <div class="item">
-                            <a href="#">
-                                <div class="image"><img src=${product.product.thumbnail} /></div>
-                                <p>${product.product.name}</p>
-                                <hr/>
-                                <p>$${product.product.price}</p>
-                                <button type="button">add to cart</button>
-                            </a>
-                        </div>
-                    `);
-                });
+            success: function(products) {
+                if (products) {
+                    console.log(products)
+                    var grid = $('.grid-container');
+                    grid.empty();
+                    products.forEach(function(product) {
+                        grid.append(`
+                            <div class="item">
+                                <a href="${'./products/'+product.id}">
+                                    <div class="image"><img src=${product.thumbnail} /></div>
+                                    <p>${product.name}</p>
+                                    <hr/>
+                                    <p>$${product.price}</p>
+                                    <button type="button">add to cart</button>
+                                </a>
+                            </div>
+                        `);
+                    });
+                }
             }
         });  
     }

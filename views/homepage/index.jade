@@ -16,7 +16,7 @@ html
           li
             a(href='/about') About Us
       .splash
-        img.numagic(src='https://dl.dropboxusercontent.com/s/zgy6buzzojkoxnl/logo.png?dl=0' alt="./logo.png")
+        img.numagic(alt='https://dl.dropboxusercontent.com/s/zgy6buzzojkoxnl/logo.png?dl=0' src="/logo.png")
         h1 New magic and You
       .bottom-header
         form(action='./products')
@@ -24,14 +24,12 @@ html
     #product-grid.grid-section
       .grid-menu
         ul
-          li
-            a.active(data-target='closeup') close up
-          li
-            a(data-target='playingcards') playing cards
-          li
-            a(data-target='kidsmagic') kids magic
-          li
-            a(data-target='stagemagic') stage magic
+          each category in categories
+            li
+              if category.name == 'close up'
+                a.active(data-target=category.name)= category.name
+              else
+                a(data-target=category.name)= category.name
       .title-block
         h1 the latest
         p and greatest products
@@ -50,16 +48,9 @@ html
           .category-box
             h1 Browse By Category
             ul
-              li
-                a(href='#') Card Magic
-              li
-                a(href='#') Playing Cards
-              li
-                a(href='#') Kids Magic
-              li
-                a(href='#') Stage Magic
-              li
-                a(href='#') Coins
+              each category in categories
+                li 
+                  a(href="/category/"+category.id)= category.name
         .about
           h1 welcome
           h3 More About NU Magic - Where We Started

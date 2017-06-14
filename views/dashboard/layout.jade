@@ -1,0 +1,45 @@
+doctype html
+html
+    head
+        link(rel='stylesheet', href='/css/dashboard.css')
+        link(href='https://fonts.googleapis.com/css?family=Montserrat', rel='stylesheet')
+        meta(name='viewport', content='width=device-width')
+        title Nu Magic - New magic and you
+    body
+        header.top-menu
+            .logo
+                a(href="/")
+                    img(src='/logo.png' )
+
+            ul
+                li
+                    a(href="/") home
+                li 
+                    a(href="/products") products
+                li
+                    a(href='/about') about
+                li
+                    a(href="/admin/logout") logout
+        header.side-bar
+            ul
+                li(class=(page === 'dashboard') ? "active" : "")
+                    a(href="/dashboard") dashboard
+                li.parent-menu(class=(page === 'category') ? "active" : '')
+                    a(href="/dashboard/category") category
+                    ul.sub-menu
+                        li: a(href="/dashboard/category/add") add category
+                li(class=(page === 'article') ? "active" : '')
+                    a(href="/dashboard/article") article
+                li.parent-menu( class=(page === 'products') ? "active" : "" )
+                    a(href="/dashboard/products") products
+                    ul.sub-menu
+                        li: a(href="/dashboard/products/add") add product
+                li( class=(page === 'order') ? "active" : "" )
+                    a(href="#") order 
+
+        .container
+            if title
+                h1= title
+            else
+                h1= page
+            block content

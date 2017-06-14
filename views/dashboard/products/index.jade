@@ -1,0 +1,27 @@
+extends ../layout.jade
+
+block content
+    .products.card
+        h2 Products
+        table
+            thead
+                tr 
+                    th Name
+                    th Price
+                    th Stock
+                    th Updated_at
+                    th Created_at
+                    th Delete
+            body
+                if products.rows
+                    each product in products.rows
+                        tr
+                            td= product.name
+                            td= product.price
+                            td= product.stock
+                            td= product.updatedAt
+                            td= product.createdAt
+                            td 
+                                form(action="/dashboard/products/delete" method="post")
+                                    input(type="text" name="id" value=product.id hidden)
+                                    button(type="submit") Delete

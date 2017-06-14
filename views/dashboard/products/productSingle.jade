@@ -1,0 +1,9 @@
+extend ../layout.jade
+
+block content
+    .product
+        h1= product.name
+        hr
+        .thumbnail
+            img(src=product.thumbnail)
+        h3= "$" + product.price

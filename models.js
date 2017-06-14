@@ -5,15 +5,13 @@ var Product = connection.define('product', {
     name: Sequelize.STRING,
     price: Sequelize.INTEGER,
     stock: Sequelize.INTEGER,
-    weight: Sequelize.FLOAT,
-    width: Sequelize.FLOAT,
-    height: Sequelize.FLOAT,
     featured: { type: Sequelize.BOOLEAN, defaultValue: false },
     thumbnail: Sequelize.STRING
 });
 
 var Category = connection.define('category', {
-    name: { type: Sequelize.STRING, unique: true }
+    name: { type: Sequelize.STRING, unique: true },
+    featured: { type: Sequelize.BOOLEAN, defaultValue: false}
 });
 
 var ProductCategory = connection.define('product_category', {});
@@ -22,6 +20,25 @@ ProductCategory.belongsTo(Product);
 ProductCategory.belongsTo(Category);
 Product.hasMany(ProductCategory);
 Category.hasMany(ProductCategory);
+
+if (process.env.TABLE) {
+    Category.create({
+        name: 'close up',
+        featured: true
+    });
+    Category.create({
+        name: 'playing cards',
+        featured: true
+    });
+    Category.create({
+        name: 'kids magic',
+        featured: true
+    });
+    Category.create({
+        name: 'stage magic',
+        featured: true
+    });
+}
 
 
 connection.sync().catch(function(err) {
