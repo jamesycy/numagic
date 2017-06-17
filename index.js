@@ -63,7 +63,6 @@ app.get('/about', function(req, res) {
     res.render('layout/about', { page: 'about', title: 'about nu magic' });
 });
 
-
 require('./routes/dashboard')(app);
 require('./routes/api')(app, upload, cloudinary);
 

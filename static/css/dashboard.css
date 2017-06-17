@@ -8,9 +8,19 @@ body {
   background: #f8f8f8;
   font-size: 100%; }
 
-ul li a {
-  text-transform: uppercase;
-  color: #fff; }
+ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 5px 10px; }
+  ul li a {
+    text-transform: uppercase;
+    color: #fff; }
+
+.pagination a.active {
+  color: #BA4550; }
+
+.pagination a {
+  color: black; }
 
 .top-menu {
   -webkit-box-shadow: 0 0 35px rgba(0, 0, 0, 0.2);
@@ -54,12 +64,12 @@ ul li a {
   .side-bar ul.sub-menu {
     position: absolute;
     left: 100%;
-    width: 200px;
     padding: 0;
     background-color: #BA4550;
     display: none;
     top: 0px; }
     .side-bar ul.sub-menu li {
+      width: 150px;
       margin: 0; }
   .side-bar .parent-menu {
     position: relative; }
@@ -93,6 +103,7 @@ ul li a {
 .products table, .categories table {
   margin: 2rem auto; }
   .products table tr, .categories table tr {
+    height: 80px;
     table-layout: fixed; }
     .products table tr td, .products table tr th, .categories table tr td, .categories table tr th {
       width: 250px;
@@ -103,6 +114,9 @@ ul li a {
       background-color: #B53939;
       border: none;
       color: #fff; }
+
+.product-add *, .category-add * {
+  outline: none; }
 
 .product-add input, .category-add input {
   padding: .5rem .4rem;
@@ -127,3 +141,14 @@ ul li a {
   color: #fff;
   border: none;
   outline: none; }
+
+.product-add textarea, .category-add textarea {
+  text-align: left;
+  padding: .25rem; }
+
+.productsingle h1 {
+  margin: 10px 0; }
+
+.productsingle hr {
+  width: 80%;
+  margin: auto; }

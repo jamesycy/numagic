@@ -1,23 +1,30 @@
 var Product = require('../models').Product;
 var Category = require('../models').Category;
 var ProductCategory = require('../models').ProductCategory;
+var fs = require('fs');
 
 module.exports = function(app, upload, cloudinary) {
     app.get('/api/featured', function(req, res) {
-        Product.findAll({
-            where: { featured: true },
-            limit: 12,
+        Category.find({
+            where: { name: req.query.category },
             include: {
                 model: ProductCategory,
                 include: {
-                    model: Category,
-                    where: { name: req.query.category }
+                    model: Product,
+                    where: { featured: true }
                 }
             }
-        }).then(function(products) {
-            console.log(products)
-            res.json(products);
-        })
+        }).then(function(category) {
+            res.json(category);
+        });
+    });
+
+    app.post('/api/products/delete/', function(req, res) {
+        Product.findById(req.body.id).then(function(product) {
+            cloudinary.uploader.destroy(product.public_id);
+            product.destroy();
+        });
+        res.redirect('/dashboard')
     });
 
     app.post('/api/products', upload.single('thumbnail'), function(req, res) {
@@ -25,45 +32,25 @@ module.exports = function(app, upload, cloudinary) {
             name: req.body.name,
             price: req.body.price,
             stock: req.body.stock,
-            weight: req.body.weight,
+            description: req.body.description,
             featured: req.body.featured,
+            weight: req.body.weight
         }).then(function(product) {
-            if(req.file) {
-                cloudinary.uploader.upload(req.file.path, function(result) {
-                    fs.unlinkSync(req.file.path);
-                    var image = cloudinary.url(result.public_id + result.format, { width: 180, height: 180, crop: 'fill' });
-                    product.updateAttributes({ thumbnail: image.slice(0, image.length - 3) });
-                });
-            }
-            if(req.body.category) {
-                for(var i = 0; i < req.body.category.length; i++) {
+            if (req.body.category) {
+                for (var i = 0; i < req.body.category.length; i++) {
                     ProductCategory.create({ productId: product.id, categoryId: req.body.category[i] });
                 }
+            }
+            if (req.file) {
+                cloudinary.uploader.upload(req.file.path, function(result) {
+                    fs.unlink(req.file.path);
+                    product.updateAttributes({ thumbnail: cloudinary.url(result.public_id + '.' + result.format, { width: 188, height: 188, crop: 'fill' }), public_id: result.public_id
+                    });
+                });
             }
         });
         res.redirect('/dashboard');
     });
-
-    app.put('/api/products/:id', function(req, res) {
-        Product.findById(req.params.id).then(function(product) {
-            product.updateAttributes({
-                name: req.body.name,
-                price: req.body.price,
-                stock: req.body.stock,
-                weight: req.body.weight,
-                width: req.body.width,
-                height: req.body.height,
-                featured: req.body.featured,
-            });
-        });
-    });
-
-    app.post('/api/products/delete/', function(req, res) {
-        Product.destroy({ where: { id: req.body.id } }).then(res.redirect('/dashboard'));
-        res.redirect('/dashboard')
-    });
-
-
 
 
 

@@ -17,9 +17,23 @@ body {
     font-size: 100%;
 }
 
-ul li a {
-    text-transform: uppercase;
-    color: #fff;
+ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 5px 10px;
+     a {
+        text-transform: uppercase;
+        color: #fff;
+    }
+}
+
+.pagination {
+    a.active {
+        color: $text;
+    }
+    a {
+        color: black;
+    }
 }
 
 .top-menu {
@@ -60,12 +74,12 @@ ul li a {
     ul.sub-menu {
         position: absolute;
         left: 100%;
-        width: 200px;
         padding: 0;
         background-color: $text;
         display: none;
         top: 0px;
         li {
+            width: 150px;
             margin: 0;
         }
     }
@@ -114,6 +128,7 @@ ul li a {
     table {
         margin: 2rem auto;
         tr {
+            height: 80px;
             table-layout: fixed;
             td, th {
                 width: 250px;
@@ -131,6 +146,9 @@ ul li a {
 }
 
 .product-add, .category-add {
+    * {
+        outline: none;
+    }
     input {
         padding: .5rem .4rem;
         text-align: left;
@@ -155,5 +173,19 @@ ul li a {
         color: #fff;
         border: none;
         outline: none;
+    }
+    textarea {
+        text-align: left;
+        padding: .25rem;
+    }
+}
+
+.productsingle {
+    h1 {
+        margin: 10px 0;
+    }
+    hr {
+        width: 80%;
+        margin: auto;
     }
 }

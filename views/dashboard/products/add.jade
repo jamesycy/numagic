@@ -2,12 +2,19 @@ extend ../layout.jade
 
 block content
     .product-add.card
-        form(method="post" action="/api/products")
+        form(method="post" action="/api/products" enctype="multipart/form-data")
+            label Name
+            br
             input(type="text" name="name" placeholder="Product Name" required)
+            br
+            label Description
+            br
+            textarea(name="description" rows="4" cols="50")
             br
             input(type="number" name="price" placeholder="Product Price" required)
             input(type="number" name="stock" placeholder="Product Stock" required)
             input(type="number" name="weight" placeholder="Product Weight")
+            input(type="file" name="thumbnail")
             br
             label Featured:
             select(name="featured")

@@ -4,16 +4,12 @@ var ProductCategory = require('../models').ProductCategory;
 
 module.exports = function(app) {
     app.get('/dashboard', function(req, res) {
-        var page = (req.query.page - 1) * 10
-        Product.findAndCount({
-            limit: 2,
-            offset: page || 0,
+        Product.findAll({
             include: {
                 model: ProductCategory,
                 include: Category
             }
         }).then(function(products) {
-            console.log(products)
             Category.findAll().then(function(categories) {
                 res.render('dashboard/products/index', {page: 'dashboard', products: products, categories: categories});
             });
@@ -21,7 +17,7 @@ module.exports = function(app) {
     });
 
     app.get('/dashboard/products', function(req, res) {
-        Product.findAndCount({
+        Product.findAll({
             include: {
                 model: ProductCategory,
                 include: Category
@@ -37,7 +33,7 @@ module.exports = function(app) {
         })
     });
 
-    app.get('/dashboard/products/:id', function(req, res) {
+    app.get('/dashboard/product/:id', function(req, res) {
         Product.findById(req.params.id, { include: { model: ProductCategory, include: Category } }).then(function(product) {
             res.render('dashboard/products/productSingle', {page: 'products', product: product});
         });

@@ -6,7 +6,8 @@ var Product = connection.define('product', {
     price: Sequelize.INTEGER,
     stock: Sequelize.INTEGER,
     featured: { type: Sequelize.BOOLEAN, defaultValue: false },
-    thumbnail: Sequelize.STRING
+    thumbnail: Sequelize.STRING,
+    public_id: Sequelize.STRING
 });
 
 var Category = connection.define('category', {

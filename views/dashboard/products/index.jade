@@ -1,6 +1,8 @@
-extends ../layout.jade
+extend ../layout.jade
 
 block content
+    - var per_page = 1;
+    - var page = { current: 1, total: Math.ceil( products.length / per_page ) };
     .products.card
         h2 Products
         table
@@ -12,9 +14,9 @@ block content
                     th Updated_at
                     th Created_at
                     th Delete
-            body
-                if products.rows
-                    each product in products.rows
+            tbody
+                if products
+                    each product in products
                         tr
                             td= product.name
                             td= product.price
@@ -22,6 +24,12 @@ block content
                             td= product.updatedAt
                             td= product.createdAt
                             td 
-                                form(action="/dashboard/products/delete" method="post")
+                                form(action="/api/products/delete" method="post")
                                     input(type="text" name="id" value=product.id hidden)
                                     button(type="submit") Delete
+            tfoot
+                tr
+                    ul.pagination
+                        - for (var i=0; i < page.total; i++)
+                            li
+                                a(href="#")= i + 1

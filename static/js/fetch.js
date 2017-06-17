@@ -14,21 +14,20 @@ $(document).ready(function() {
 
     function fetch(categoryname) {
         $.ajax({
-            url: './api/featured',
+            url: '/api/featured',
             data: {category: categoryname},
-            success: function(products) {
-                if (products) {
-                    console.log(products)
+            success: function(category) {
+                if (category.product_categories) {
                     var grid = $('.grid-container');
                     grid.empty();
-                    products.forEach(function(product) {
+                    category.product_categories.forEach(function(category) {
                         grid.append(`
                             <div class="item">
-                                <a href="${'./products/'+product.id}">
-                                    <div class="image"><img src=${product.thumbnail} /></div>
-                                    <p>${product.name}</p>
+                                <a href="${'./products/'+category.product.id}">
+                                    <div class="image"><img src=${category.product.thumbnail} /></div>
+                                    <p>${category.product.name}</p>
                                     <hr/>
-                                    <p>$${product.price}</p>
+                                    <p>$${category.product.price}</p>
                                     <button type="button">add to cart</button>
                                 </a>
                             </div>
