@@ -1,5 +1,13 @@
+body {
+  background-color: #f8f8f8;
+}
+
 .table-btn {
   display: block !important;
+}
+
+ol.breadcrumb {
+  background: #fff;
 }
 
 ol.breadcrumb, .panel-title, td, th {
