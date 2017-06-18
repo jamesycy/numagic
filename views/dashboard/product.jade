@@ -43,5 +43,20 @@ block sections
 
 block modal
     if product
-
-
+         section#details
+            .container
+                .row
+                    .col-md-12
+                        .panel.panel-default
+                            .panel-heading.main-color-bg
+                                h2.panel-title Product Details
+                            .panel-body
+                                .col-md-3
+                                    img(src=product.thumbnail)
+                                .col-md-9
+                                    .well
+                                        h4= product.name
+                                            small= ' $' + product.price
+                                        p= product.description
+                            .panel-footer
+                                button.btn.btn-warning(type="button") Edit
