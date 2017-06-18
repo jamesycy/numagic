@@ -26,7 +26,7 @@ module.exports = function(app, upload, cloudinary) {
             }   
             product.destroy();
         });
-        res.redirect('/dashboard')
+        res.redirect('/dashboard/products')
     });
 
     app.post('/api/products', upload.single('thumbnail'), function(req, res) {
@@ -63,6 +63,6 @@ module.exports = function(app, upload, cloudinary) {
     });
 
     app.get('/api/category/delete', function(req, res) {
-        Category.destroy({ where: { id: req.query.id } }).then(res.redirect('/dashboard'));
+        Category.destroy({ where: { id: req.query.id } }).then(res.redirect('/dashboard/category'));
     });
 }

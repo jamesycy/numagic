@@ -138,6 +138,7 @@ header .main-menu ul li a.cart {
 .wrapper .grid-container .product-grid .item {
   width: 50%;
   display: inline-block;
+  margin-left: 25%;
   margin-bottom: 20px;
   padding: 0.7%;
 }
@@ -153,6 +154,7 @@ header .main-menu ul li a.cart {
 @media screen and (min-width: 768px) {
   .wrapper .grid-container .product-grid .item {
     width: 33.3%;
+    margin-left: 0;
   }
 }
 

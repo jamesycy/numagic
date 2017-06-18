@@ -1,7 +1,7 @@
 .modal.fade#productModal(role="diablog" tabindex="1")
     .modal-dialog(role="document")
         .modal-content
-            form(method="post" action="/api/products")
+            form(method="post" action="/api/products" enctype="multipart/form-data")
                 .modal-header
                     button.close(type="button" data-dismiss="modal")
                         span &times;
