@@ -1,0 +1,31 @@
+extend layout
+
+block sections
+    .panel.panel-default
+        .panel-heading.main-color-bg
+            h2.panel-title Overview
+        .panel-body
+            .col-md-3
+                .well
+                    h2
+                        span(class="glyphicon glyphicon-user" aria-hidden="true")
+                        =" 8"
+                    h4 Users
+            .col-md-3
+                .well
+                    h2
+                        span(class="glyphicon glyphicon-shopping-cart" aria-hidden="true")
+                        = ' ' + productLength
+                    h4 Products
+            .col-md-3
+                .well
+                    h2
+                        span(class="glyphicon glyphicon-signal" aria-hidden="true")
+                        =" 1024"
+                    h4 Visitors
+            .col-md-3
+                .well
+                    h2
+                        span(class="glyphicon glyphicon-credit-card" aria-hidden="true")
+                        =" 4"
+                    h4 Orders

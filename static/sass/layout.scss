@@ -175,6 +175,25 @@ header {
 
         .single {
             @include grid-background();
+            display: flex;
+            .thumbnail {
+                align-self: center;
+            }
+            .details {
+                hr {
+                    width: 80%;
+                    margin: 1.5rem auto;
+                }
+                p {
+                    width: 80%;
+                    margin: auto;
+                    text-align: left;
+                }
+            }
+        }
+
+        .faq {
+            @include grid-background();
         }
     }
 }

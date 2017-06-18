@@ -181,11 +181,15 @@ ul li {
 }
 
 .productsingle {
-    h1 {
-        margin: 10px 0;
-    }
-    hr {
-        width: 80%;
-        margin: auto;
+    display: flex;
+    .details {
+        hr {
+            width: 80%;
+            margin: 1rem auto;
+        }
+        p {
+            padding: 0 2rem;
+            text-align: left;
+        }
     }
 }

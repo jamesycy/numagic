@@ -19,9 +19,11 @@ module.exports = function(app, upload, cloudinary) {
         });
     });
 
-    app.post('/api/products/delete/', function(req, res) {
-        Product.findById(req.body.id).then(function(product) {
-            cloudinary.uploader.destroy(product.public_id);
+    app.get('/api/products/delete/', function(req, res) {
+        Product.findById(req.query.id).then(function(product) {
+            if(product.public_id) {
+                cloudinary.uploader.destroy(product.public_id);
+            }   
             product.destroy();
         });
         res.redirect('/dashboard')
@@ -33,8 +35,7 @@ module.exports = function(app, upload, cloudinary) {
             price: req.body.price,
             stock: req.body.stock,
             description: req.body.description,
-            featured: req.body.featured,
-            weight: req.body.weight
+            featured: req.body.featured
         }).then(function(product) {
             if (req.body.category) {
                 for (var i = 0; i < req.body.category.length; i++) {
@@ -61,7 +62,7 @@ module.exports = function(app, upload, cloudinary) {
         res.redirect('/dashboard');
     });
 
-    app.post('/api/category/delete', function(req, res) {
-        Category.destroy({ where: { id: req.body.id } }).then(res.redirect('/dashboard'));
+    app.get('/api/category/delete', function(req, res) {
+        Category.destroy({ where: { id: req.query.id } }).then(res.redirect('/dashboard'));
     });
 }

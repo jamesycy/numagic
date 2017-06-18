@@ -1,7 +1,0 @@
-extends ../layout.jade
-
-block content
-    .category-add.card
-        form(action="/api/category" method="post")
-            input(type="text" name="name" placeholder="Category Name" required)
-            button(type="submit") Save

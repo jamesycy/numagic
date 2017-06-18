@@ -1,0 +1,47 @@
+extend layout
+
+block sections
+    .panel.panel-default
+        .panel-heading.main-color-bg
+            h2.panel-title All #{page}
+        .panel-body
+            table.table.table-striped.table-hover
+                thead
+                    tr
+                        if products
+                            th id
+                            th Name
+                            th Price
+                            th Stock 
+                            th Published
+
+                        if categories
+                            th Name
+                            th Published
+
+                tbody
+                    if products
+                        each product in products
+                            tr
+                                td= product.id
+                                td: a(href="/dashboard/products?id=#{product.id}")= product.name
+                                td= product.price
+                                td= product.stock
+                                td Yes
+                                td
+                                    a.btn.btn-danger.btn-sm.table-btn(href="/api/products/delete?id=#{product.id}")
+                                        span(class="glyphicon glyphicon-trash" aria-hidden="true")
+                
+                    if categories
+                        each category in categories
+                            tr
+                                td= category.name
+                                td Yes
+                                if !category.featured
+                                    td: a.btn.btn-danger.btn-sm.table-btn(href="/api/category/delete?id=#{category.id}")
+                                        span(class="glyphicon glyphicon-trash" aria-hidden="true")
+
+block modal
+    if product
+
+

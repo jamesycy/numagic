@@ -285,8 +285,9 @@ header .bottom-header button:hover {
 }
 
 .multi-func .wrapper .search .search-box input {
+  outline: none;
   font-size: 1rem;
-  padding: 2px 4px;
+  padding: .5rem;
   text-align: left;
   border: none;
 }
@@ -295,7 +296,7 @@ header .bottom-header button:hover {
   background-color: #334;
   font-size: 14px;
   color: #fff;
-  padding: 5px;
+  padding: .5rem;
   border: none;
 }
 

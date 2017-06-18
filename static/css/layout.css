@@ -222,4 +222,34 @@ header .main-menu ul li a.cart {
   -webkit-box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
   background: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.wrapper .grid-container .single .thumbnail {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.wrapper .grid-container .single .details hr {
+  width: 80%;
+  margin: 1.5rem auto;
+}
+
+.wrapper .grid-container .single .details p {
+  width: 80%;
+  margin: auto;
+  text-align: left;
+}
+
+.wrapper .grid-container .faq {
+  background: #fff;
+  padding: 2rem;
+  max-height: 100%;
+  -webkit-box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+  background: #fff;
 }

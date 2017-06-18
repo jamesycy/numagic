@@ -2,9 +2,11 @@ extend layout.jade
 
 if product
     block content
-        div.single
-            .container
-                .thumbnail
-                    img(src=product.thumbnail)
-                .description
-                    p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt eveniet sed exercitationem consequatur! Dolore reiciendis ut accusantium unde sapiente ipsam beatae aspernatur corporis atque consectetur delectus deleniti, amet quae cupiditate.
+        .single
+            .thumbnail
+                img(src=product.thumbnail)
+            .details
+                h1= product.name
+                h2= "$" + product.price
+                hr
+                p= product.description

@@ -1,0 +1,57 @@
+.modal.fade#productModal(role="diablog" tabindex="1")
+    .modal-dialog(role="document")
+        .modal-content
+            form(method="post" action="/api/products")
+                .modal-header
+                    button.close(type="button" data-dismiss="modal")
+                        span &times;
+                    h4.modal-title Add New Product
+                .modal-body
+                    .form-group
+                        label Product Name
+                        input.form-control(type="text" name="name" placeholder="Product Name")
+                    .form-group
+                        label Product Price
+                        input.form-control(type="text" name="price" placeholder="Product Price")
+                    .form-group
+                        label Product Stock
+                        input.form-control(type="text" name="stock" placeholder="Product Stock")
+                    .form-group
+                        label Product Description
+                        textarea.form-control(type="text" name="description" placeholder="Product Description")
+                    .form-group
+                        label Featured
+                        select.form-control(name="featured")
+                            option(value="true") Yes
+                            option(value="false") No
+                    .form-group
+                        label Product Thumbnail
+                        input(type="file" name="thumbnail")
+                    .form-group
+                        label Categories
+                        select.form-control(name="category" multiple)
+                            each category in categoriesModal
+                                option(value=category.id)= category.name
+                .modal-footer
+                    button.btn.btn-danger(type="submit") Save
+                    button.btn.btn-default(type="button" data-dismiss="modal") Close
+
+
+
+
+
+.modal.fade#categoryModal(role="diablog" tabindex="1")
+    .modal-dialog(role="document")
+        .modal-content
+            form(method="post" action="/api/category")
+                .modal-header
+                    button.close(type="button" data-dismiss="modal")
+                        span &times;
+                    h4.modal-title Add New Category
+                .modal-body
+                    .form-group
+                        label Category Name
+                        input.form-control(type="text" name="name" placeholder="Category Name")
+                .modal-footer
+                    button.btn.btn-danger(type="submit") Save
+                    button.btn.btn-default(type="button" data-dismiss="modal") Close

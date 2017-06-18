@@ -7,6 +7,7 @@ var Product = connection.define('product', {
     stock: Sequelize.INTEGER,
     featured: { type: Sequelize.BOOLEAN, defaultValue: false },
     thumbnail: Sequelize.STRING,
+    description: Sequelize.STRING,
     public_id: Sequelize.STRING
 });
 
