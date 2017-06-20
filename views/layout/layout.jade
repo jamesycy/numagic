@@ -37,10 +37,16 @@ html
             .wrapper
                 .title-block
                     h1= title
-                form.search-form
+                form.search-form(action="/products/")
                     button
                         i.fa.fa-search
-                    input(type='text', name='search', placeholder='SEARCH')
+                    input(type='text' name='search' placeholder='SEARCH')
+                form.search-form(action="/categories/")
+                    button
+                        i.fa.fa-tags
+                    select(name="category" onchange=)
+                        each category in categories
+                            option=category.name
                 .grid-container
                     block content
         script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')

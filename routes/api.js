@@ -24,7 +24,7 @@ module.exports = function(app, upload, cloudinary) {
             if(product.public_id) {
                 cloudinary.uploader.destroy(product.public_id);
             }   
-            product.destroy();
+            Product.destroy({ where: { id: req.query.id } });
         });
         res.redirect('/dashboard/products')
     });

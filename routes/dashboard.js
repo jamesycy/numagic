@@ -17,7 +17,7 @@ module.exports = function(app) {
             Product.findAll()
             .then(function(products) {
                 if (req.query.id) {
-                    Product.findById(req.query.id).then(function(product) {
+                    Product.findById(req.query.id, { include: { model: ProductCategory, include: Category } }).then(function(product) {
                         res.render('dashboard/product', { products: products, product: product, page: "products", categoriesModal: categories })
                     });
                 } else {

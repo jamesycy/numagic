@@ -44,27 +44,49 @@ app.get('/', function(req ,res) {
 });
 
 app.get('/products', function(req, res) {
-    Product.findAll().then(function(products) {
-        res.render('layout/index', { page: 'products', title: 'our collection', products: products });
+    Category.findAll().then(function(categories) {
+        if (req.query.search) {
+            Product.findAll({ where: { name: { $like: '%' + req.query.search + '%' } } }).then(function(products) {
+                res.render('layout/index', { page: 'products', title: 'our collection', products: products, categories: categories });
+            });
+        } else  {
+            Product.findAll().then(function(products) {
+                res.render('layout/index', { page: 'products', title: 'our collection', products: products, categories: categories });
+            });
+        }
+    });
+});
+
+app.get('/categories', function(req, res) {
+    Category.find({
+        where: { name: 'close up' },
+        include: {
+            model: ProductCategory,
+            include: Product
+        }
+    }).then(function(category) {
+        res.render('layout/categories', { page: 'products', title: 'our collections', products: category, categories: category });
     });
 });
 
 app.get('/products/:id', function(req, res) {
-    Product.findById(req.params.id).then(function(product) {
-        res.render('layout/single', { page: 'products', title: product.dataValues.name, product: product });
+    Category.findAll().then(function(categories) {
+        Product.findById(req.params.id).then(function(product) {
+            res.render('layout/single', { page: 'products', title: 'our collection', product: product, categories: categories });
+        });
     });
 });
 
 app.get('/faq', function(req, res) {
-    res.render('layout/faq', { page: 'faq', title: 'support cetner' })
+    Category.findAll().then(function(categories) {
+        res.render('layout/faq', { page: 'faq', title: 'support cetner', categories: categories })
+    });
 });
 
 app.get('/about', function(req, res) {
-    res.render('layout/about', { page: 'about', title: 'about nu magic' });
-});
-
-app.get('/test', function(req, res) {
-    res.render('test');
+    Category.findAll().then(function(categories) {
+        res.render('layout/about', { page: 'about', title: 'about nu magic', categories: categories });
+    });
 });
 
 require('./routes/dashboard')(app);

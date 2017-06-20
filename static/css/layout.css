@@ -103,13 +103,19 @@ header .main-menu ul li a.cart {
   text-align: left;
   padding-left: 15px;
   margin-top: 10px;
-  margin-bottom: 50px;
 }
 
 .wrapper .search-form button {
   background: none;
   border: none;
   font-size: 16px;
+}
+
+.wrapper .search-form select {
+  outline: none;
+  border: none;
+  background: #fff;
+  text-transform: capitalize;
 }
 
 .wrapper .search-form input {
@@ -122,6 +128,7 @@ header .main-menu ul li a.cart {
 }
 
 .wrapper .grid-container {
+  margin-top: 50px;
   width: 100%;
 }
 

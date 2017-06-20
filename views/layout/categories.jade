@@ -1,0 +1,15 @@
+extend layout.jade
+
+block content
+    ul.product-grid
+        if products
+            each joint in products
+                each product in joint
+                    li.item
+                        a(href='/products/' + product.id)
+                            .image
+                                if product.thumbnail
+                                    img(src=product.thumbnail)
+                            label.name= product.name
+                            br
+                            label.price= "$" + product.price
